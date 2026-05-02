@@ -1,0 +1,171 @@
+plugins {
+    id 'java-library'
+    id 'eclipse'
+}
+
+java {
+    
+}
+
+// -------------------- Configurations --------------------
+configurations {
+    texturePacker
+}
+
+// -------------------- Dependencies --------------------
+dependencies {
+    // Core project
+    implementation project(":core")
+
+    // Desktop runtime dependencies
+    api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+
+    // gdx-tools only for TexturePacker
+    texturePacker "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+}
+
+// -------------------- Source Sets --------------------
+sourceSets {
+    main {
+        java {
+            srcDirs = ["src/"]
+        }
+        resources {
+            srcDirs = ["../assets"]
+        }
+    }
+}
+
+// -------------------- Project Properties --------------------
+project.ext {
+    mainClassName = "com.mygdx.game.DesktopLauncher"
+    assetsDir = file("../assets")
+}
+
+import org.gradle.internal.os.OperatingSystem
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+
+// -------------------- Run Task --------------------
+tasks.register('run', JavaExec) {
+    group = "application"
+    dependsOn classes
+    mainClass.set(project.ext.mainClassName)
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.projectDir.parentFile  // <-- set to project root
+
+    if (OperatingSystem.current() == OperatingSystem.MAC_OS) {
+        jvmArgs += "-XstartOnFirstThread"
+    }
+}
+
+tasks.register('debug', JavaExec) {
+    group = "application"
+    dependsOn classes
+    mainClass.set(project.ext.mainClassName)
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    workingDir = project.projectDir.parentFile  // <-- project root
+    debug = true
+}
+
+
+// -------------------- Dist Task --------------------
+tasks.register('dist', Jar) {
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+    manifest {
+        attributes 'Main-Class': project.ext.mainClassName
+    }
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+tasks.named('dist').configure { dependsOn classes }
+
+// -------------------- Pack NPCs Atlas --------------------
+tasks.register("packAtlases") {
+    group = "assets"
+    description = "Packs each subfolder in assets/raw into its own TextureAtlas (recursively)."
+
+    def assetsDir = file("../assets").canonicalFile
+    def rawDir = new File(assetsDir, "raw")
+    def outputDir = new File(assetsDir, "packed")
+
+    inputs.dir(rawDir)
+    outputs.dir(outputDir)
+
+    doFirst {
+        if (!rawDir.exists()) throw new GradleException("Missing folder: ${rawDir}")
+        if (outputDir.exists()) {
+            println "🧹 Cleaning old atlases in: ${outputDir}"
+            outputDir.deleteDir()
+        }
+        outputDir.mkdirs()
+    }
+
+    doLast {
+        // Load TexturePacker dynamically from gdx-tools
+        def classLoader = new URLClassLoader(
+            configurations.texturePacker.collect { it.toURI().toURL() } as URL[]
+        )
+        def texturePackerClass = classLoader.loadClass("com.badlogic.gdx.tools.texturepacker.TexturePacker")
+        def settingsClass = classLoader.loadClass("com.badlogic.gdx.tools.texturepacker.TexturePacker\$Settings")
+        def processMethod = texturePackerClass.getMethod("process", settingsClass, String, String, String)
+
+        def settings = settingsClass.getDeclaredConstructor().newInstance()
+        settings.maxWidth = 4096
+        settings.maxHeight = 4096
+        settings.paddingX = 2
+        settings.paddingY = 2
+        settings.edgePadding = true
+        settings.duplicatePadding = true
+        settings.combineSubdirectories = true
+        settings.flattenPaths = false
+
+        println "Packing all atlases from: ${rawDir}"
+        println "Output folder: ${outputDir}\n"
+
+        rawDir.eachDir { subDir ->
+    def pngCount = subDir.listFiles({ f -> f.isFile() && f.name.toLowerCase().endsWith(".png") } as FileFilter)?.length ?: 0
+    if (pngCount == 0 && !subDir.listFiles().any { it.isDirectory() }) {
+        println "Skipping empty folder '${subDir.name}'"
+        return
+    }
+
+    def atlasName = subDir.name
+    def tempDir = new File(assetsDir, "tmp_${atlasName}")
+    if (tempDir.exists()) tempDir.deleteDir()
+    tempDir.mkdirs()
+
+    // --- Flatten images ---
+    def usedNames = [] as Set
+    subDir.eachFileRecurse { file ->
+        if (file.isFile() && file.name.toLowerCase().endsWith(".png")) {
+            def newName = file.name
+            if (usedNames.contains(newName)) {
+                // handle duplicates gracefully
+                newName = "${file.parentFile.name}_${file.name}"
+            }
+            usedNames << newName
+            Files.copy(file.toPath(), new File(tempDir, newName).toPath(), StandardCopyOption.REPLACE_EXISTING)
+        }
+    }
+
+    println "→ Packing '${atlasName}'..."
+    processMethod.invoke(null, settings, tempDir.absolutePath, outputDir.absolutePath, atlasName)
+    println "   Packed $pngCount images into '${atlasName}.atlas'\n"
+
+    // Clean up temporary directory
+    tempDir.deleteDir()
+}
+
+
+        println "All atlases packed successfully into ${outputDir}"
+    }
+}
