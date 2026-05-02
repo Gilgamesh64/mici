@@ -3,8 +3,6 @@ package com.mygdx.resources.enums;
 public enum AtlasEnum {
     PLAYER,
     NPCS,
-    WEAPONS,
-    BULLETS,
     BUILDINGS,
     COMPONENTS,
     EFFECTS,

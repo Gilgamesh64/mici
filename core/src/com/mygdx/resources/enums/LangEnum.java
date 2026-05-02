@@ -22,6 +22,4 @@ public enum LangEnum {
         current = lang;
         RM.get().updateLang();
     }
-
-
 }

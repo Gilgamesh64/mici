@@ -3,10 +3,7 @@ package com.mygdx.resources.enums;
 import java.util.stream.Stream;
 
 public enum AnimationEnum {
-    PLAYER,
-    JERKINS,
-    BLACKMARKETEER;
-
+    PLAYER;
 
     public TextureEnum[] frameList;
     public float animationRate = 0.2f;

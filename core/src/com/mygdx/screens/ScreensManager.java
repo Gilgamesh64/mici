@@ -4,6 +4,10 @@ import java.util.HashMap;
 
 import com.mygdx.game.Main;
 import com.mygdx.resources.RM;
+import com.mygdx.screens.game.Center;
+import com.mygdx.screens.game.Entrance;
+import com.mygdx.screens.game.Left;
+import com.mygdx.screens.game.Right;
 import com.mygdx.screens.generic.GenericScreen;
 import com.mygdx.screens.generic.PlayableScreen;
 import com.mygdx.screens.menus.MenuScreen;
@@ -27,17 +31,17 @@ public class ScreensManager {
                 case SETTINGS -> {
                     map.put(Screens.SETTINGS, new SettingsScreen());
                 }
-                case SLUMS -> {
-                    map.put(Screens.SLUMS, new Entrance());
+                case ENTRANCE -> {
+                    map.put(Screens.ENTRANCE, new Entrance());
                 }
-                case PARK -> {
-                    map.put(Screens.PARK, new Right());
+                case RIGHT -> {
+                    map.put(Screens.RIGHT, new Right());
                 }
-                case RICH_DISTRICT -> {
-                    map.put(Screens.RICH_DISTRICT, new Center());
+                case CENTER -> {
+                    map.put(Screens.CENTER, new Center());
                 }
-                case INSIDE -> {
-                    map.put(Screens.INSIDE, new Left());
+                case LEFT -> {
+                    map.put(Screens.LEFT, new Left());
                 }
             }
         }

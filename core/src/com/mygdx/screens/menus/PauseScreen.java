@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.mygdx.resources.RM;
 import com.mygdx.screens.Screens;
+import com.mygdx.screens.ScreensManager;
 import com.mygdx.screens.generic.GuiScreen;
 
 public class PauseScreen extends GuiScreen {

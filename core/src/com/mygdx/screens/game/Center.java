@@ -1,12 +1,5 @@
 package com.mygdx.screens.game;
 
-import com.mygdx.Data;
-import com.mygdx.GCStage;
-import com.mygdx.entities.npcs.NPC;
-import com.mygdx.entities.npcs.NPCBuilder;
-import com.mygdx.quest.Quests;
-import com.mygdx.resources.enums.AnimationEnum;
-import com.mygdx.resources.enums.DialogueEnum;
 import com.mygdx.resources.enums.MapEnum;
 import com.mygdx.screens.generic.PlayableScreen;
 
