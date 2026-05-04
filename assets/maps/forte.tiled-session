@@ -1,0 +1,66 @@
+{
+    "activeFile": "left.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "center.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 520.5,
+                "y": 484.5
+            }
+        },
+        "entrance.tmx": {
+            "scale": 0.7904296875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 511.74697306646897,
+                "y": 511.746973066469
+            }
+        },
+        "left.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 649.6666666666666,
+                "y": 635
+            }
+        },
+        "right.tmx": {
+            "scale": 0.7904296875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 511.74697306646897,
+                "y": 511.746973066469
+            }
+        },
+        "ts.tsx": {
+            "scaleInDock": 0.33,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/chto2/Desktop/mici/assets/packed",
+    "map.height": 32,
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": "1",
+    "map.renderOrder": "2",
+    "map.width": 32,
+    "openFiles": [
+        "ts.tsx",
+        "left.tmx",
+        "right.tmx",
+        "center.tmx",
+        "entrance.tmx"
+    ],
+    "project": "forte.tiled-project",
+    "recentFiles": [
+        "ts.tsx",
+        "entrance.tmx",
+        "center.tmx",
+        "right.tmx",
+        "left.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}

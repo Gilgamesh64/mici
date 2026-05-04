@@ -5,8 +5,7 @@ public enum AtlasEnum {
     NPCS,
     BUILDINGS,
     COMPONENTS,
-    EFFECTS,
-    OTHERS;
+    EFFECTS;
 
     public String path;
 

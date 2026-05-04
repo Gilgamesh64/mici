@@ -1,7 +1,7 @@
 package com.mygdx.resources.enums;
 
 public enum SoundEnum {
-    REFLECTION_5;
+    MEW;
 
     public String path;
 

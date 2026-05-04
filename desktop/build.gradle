@@ -121,10 +121,10 @@ tasks.register("packAtlases") {
         def settings = settingsClass.getDeclaredConstructor().newInstance()
         settings.maxWidth = 4096
         settings.maxHeight = 4096
-        settings.paddingX = 2
-        settings.paddingY = 2
-        settings.edgePadding = true
-        settings.duplicatePadding = true
+        settings.paddingX = 0
+        settings.paddingY = 0
+        settings.edgePadding = false
+        settings.duplicatePadding = false
         settings.combineSubdirectories = true
         settings.flattenPaths = false
 
