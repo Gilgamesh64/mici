@@ -3,6 +3,7 @@ package com.mygdx.resources.enums;
 import java.util.stream.Stream;
 
 public enum AnimationEnum {
+    TEST_CAT,
     PLAYER;
 
     public TextureEnum[] frameList;

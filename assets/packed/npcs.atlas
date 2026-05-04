@@ -1,13 +1,20 @@
 
 npcs.png
-size: 64, 32
+size: 256, 32
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
 jerkins_idle_left
   rotate: false
-  xy: 0, 0
+  xy: 96, 4
   size: 48, 28
   orig: 48, 28
+  offset: 0, 0
+  index: -1
+test_cat
+  rotate: false
+  xy: 0, 0
+  size: 96, 32
+  orig: 96, 32
   offset: 0, 0
   index: -1

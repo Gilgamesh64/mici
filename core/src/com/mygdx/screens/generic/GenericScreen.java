@@ -5,7 +5,7 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.Data;
 import com.mygdx.GCStage;
 import com.mygdx.camera.CameraController;
@@ -23,7 +23,7 @@ public abstract class GenericScreen extends ScreenAdapter {
 
     protected GenericScreen() {
         camera = new OrthographicCamera();
-        stage = new GCStage(new FitViewport(Data.VIEWPORT_X, Data.VIEWPORT_Y, camera));
+        stage = new GCStage(new ExtendViewport(Data.VIEWPORT_X, Data.VIEWPORT_Y, camera));
         GCStage.set(stage);
         
         mux = new InputMultiplexer();

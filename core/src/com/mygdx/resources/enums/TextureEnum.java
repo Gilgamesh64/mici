@@ -10,6 +10,8 @@ public enum TextureEnum {
     PLAYER_WALK_LEFT(1),
     PLAYER_WALK_RIGHT(1),
 
+    TEST_CAT(3),
+
     // MAP COMPONENTS
     LAMP(2),
     LONG_LAMP,

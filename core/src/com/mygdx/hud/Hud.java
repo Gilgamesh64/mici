@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Disposable;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.Data;
 import com.mygdx.resources.RM;
 
@@ -33,7 +33,7 @@ public class Hud implements Disposable {
     private Label debugData;
 
     public Hud(InputMultiplexer mux) {
-        FitViewport viewport = new FitViewport(Data.VIEWPORT_X, Data.VIEWPORT_Y, new OrthographicCamera());
+        var viewport = new ExtendViewport(Data.VIEWPORT_X, Data.VIEWPORT_Y, new OrthographicCamera());
         stage = new Stage(viewport);
         mux.addProcessor(0, stage);
 

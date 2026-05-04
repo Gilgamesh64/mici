@@ -3,13 +3,13 @@ package com.mygdx.resources.enums;
 import com.mygdx.resources.RM;
 
 public enum LangEnum {
-    ITA("assets/dialogues/entities/ita"),
-    ENG("assets/dialogues/entities/eng");
+    ITA,
+    ENG;
 
     public String label;
 
-    LangEnum(String string) {
-        this.label = string;
+    LangEnum() {
+        this.label = "assets/dialogues/entities" + name().toLowerCase();
     }
 
     private static LangEnum current = LangEnum.ITA;
