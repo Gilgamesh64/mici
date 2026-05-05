@@ -6,8 +6,6 @@
 /desktop/bin
 /desktop/build
 *.class
-*.jar
 *.bin
-/savings/savings.json
 *.ini
 log.txt
