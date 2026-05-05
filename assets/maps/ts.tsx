@@ -77,9 +77,15 @@
   <image source="tileset/rock_with_grass.png" width="32" height="32"/>
  </tile>
  <tile id="25">
+  <properties>
+   <property name="blocked" type="bool" value="true"/>
+  </properties>
   <image source="tileset/unwalkable_terrain.png" width="32" height="32"/>
  </tile>
  <tile id="26">
+  <properties>
+   <property name="blocked" type="bool" value="true"/>
+  </properties>
   <image source="tileset/water.png" width="32" height="32"/>
  </tile>
 </tileset>

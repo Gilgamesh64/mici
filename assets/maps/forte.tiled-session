@@ -3,37 +3,61 @@
     "expandedProjectPaths": [
         "."
     ],
+    "file.lastUsedOpenFilter": "Tutti i file (*)",
     "fileStates": {
-        "center.tmx": {
-            "scale": 1,
-            "selectedLayer": 0,
+        "C:/Users/chto2/Desktop/Garbage_Collector_Repo/assets/map/rich_disctirct/rich_district.tmx": {
+            "scale": 0.23156249999999998,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 512,
-                "y": 512.5
+                "x": 2286.639676113361,
+                "y": 2895.5465587044537
+            }
+        },
+        "C:/Users/chto2/Desktop/Garbage_Collector_Repo/assets/map/tilesets/city_tileset.tsx": {
+            "scaleInDock": 1
+        },
+        "center.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 0.25,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1266,
+                "y": 1278
             }
         },
         "entrance.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
             "scale": 0.5,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 891,
-                "y": 773
+                "x": 911,
+                "y": 391
             }
         },
         "left.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
             "scale": 1.5,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 542,
-                "y": 511.66666666666663
+                "x": 2831.6666666666665,
+                "y": 577
             }
         },
         "right.tmx": {
-            "scale": 0.7904296875,
-            "selectedLayer": 0,
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 512.3795404002966,
-                "y": 511.746973066469
+                "x": 249.5,
+                "y": 766.5
             }
         },
         "ts.tsx": {
@@ -56,8 +80,9 @@
         "ts.tsx"
     ],
     "project": "forte.tiled-project",
-    "property.type": "bool",
+    "property.type": "string",
     "recentFiles": [
+        "C:/Users/chto2/Desktop/Garbage_Collector_Repo/assets/map/rich_disctirct/rich_district.tmx",
         "left.tmx",
         "right.tmx",
         "center.tmx",
