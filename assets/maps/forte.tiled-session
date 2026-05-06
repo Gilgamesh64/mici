@@ -1,5 +1,5 @@
 {
-    "activeFile": "left.tmx",
+    "activeFile": "center.tmx",
     "expandedProjectPaths": [
         "."
     ],
@@ -20,22 +20,22 @@
             "expandedObjectLayers": [
                 2
             ],
-            "scale": 0.125,
+            "scale": 0.25,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1948,
-                "y": 1500
+                "x": 2036,
+                "y": 1840
             }
         },
         "entrance.tmx": {
             "expandedObjectLayers": [
                 2
             ],
-            "scale": 0.33,
+            "scale": 0.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 865.1515151515152,
-                "y": 571.2121212121211
+                "x": 504,
+                "y": 416
             }
         },
         "left.tmx": {
@@ -45,8 +45,8 @@
             "scale": 0.25,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1358,
-                "y": 1330
+                "x": 1440,
+                "y": 1438
             }
         },
         "right.tmx": {
@@ -56,8 +56,8 @@
             "scale": 0.125,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1828,
-                "y": 2700
+                "x": 1440,
+                "y": 1444
             }
         },
         "ts.tsx": {
@@ -66,7 +66,7 @@
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "C:/Users/chto2/Desktop/mici/assets/maps/tileset",
+    "last.imagePath": "C:/Users/Gil/Desktop/mici/assets/maps/tileset",
     "map.height": 32,
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": "1",
@@ -80,13 +80,13 @@
         "ts.tsx"
     ],
     "project": "forte.tiled-project",
-    "property.type": "string",
+    "property.type": "bool",
     "recentFiles": [
+        "left.tmx",
+        "right.tmx",
         "ts.tsx",
         "entrance.tmx",
         "center.tmx",
-        "right.tmx",
-        "left.tmx",
         "C:/Users/chto2/Desktop/Garbage_Collector_Repo/assets/map/rich_disctirct/rich_district.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
